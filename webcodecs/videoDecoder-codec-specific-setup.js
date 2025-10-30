@@ -189,7 +189,7 @@ function createVideoDecoder(t, callbacks) {
 
 function createCorruptChunk(index) {
   let bad_data = CHUNK_DATA[index];
-  for (var i = 0; i < bad_data.byteLength; i += 4)
+  for (var i = 0; i < bad_data.byteLength; i += 2)
     bad_data[i] = 0xFF;
   return new EncodedVideoChunk(
       {type: 'delta', timestamp: index, data: bad_data});
